@@ -24,4 +24,4 @@ Opt = v.max(axis = 0)
 
 print(np.mean(Welf/Opt))
 print(np.mean(Welf/Opt))
-print(np.mean(Welf/Opt))
+print(np.mean(Welf/Opt))v
