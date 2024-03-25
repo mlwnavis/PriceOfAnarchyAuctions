@@ -8,6 +8,9 @@ import pandas as pd
 # ensure the notebook generate the same randomess
 np.random.seed(1)
 
+def index_of_sorted_elements(lst):
+    sorted_indexes = [i for i, _ in sorted(enumerate(lst), key=lambda x: x[1], reverse=True)]
+    return sorted_indexes
 
 def bet_Bayes_Nash(N, vi):
     return (N-1)/N*vi
