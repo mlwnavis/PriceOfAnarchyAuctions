@@ -58,7 +58,7 @@ def bet_Bayes_Nash_all_log(vi, N, base = None):
     if base is None:
         return (N-1)/N*vi**(math.log(N))
     else:
-        return (N-1)/N*vi**(math.log(N, base))
+        return (N-1)/N*vi**(math.log(N, base*N))
 
 def bet_Bayes_Nash_all_better(vi, N):
     return (2*N-2)/(2*N-1)*vi**N
@@ -83,10 +83,10 @@ def bet_random(v, equi):
     return np.random.uniform(0,v)
 
 
-def bet_normal(v, mu, no_overbetting = 0):
+def bet_normal(v, mu, no_overbetting = 0, var_fac = 1):
 
     max_sample = v**no_overbetting
-    sigma = produce_variance(mu, max_sample)
+    sigma = produce_variance(mu, max_sample) * var_fac
     
     sample = np.random.normal(mu, sigma)
     zeros = np.zeros_like(sigma)
@@ -109,5 +109,5 @@ def bet_normal_uneven(v, v_max):
 def bet_between(vi, N, x):
     return (N-1)/N*vi**(N**x)
 
-def bet_moderate(vi, n):
+def bet_moderate(vi, N):
     return (N-1)/N*vi**(N**0.5)
